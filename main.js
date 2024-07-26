@@ -16,7 +16,7 @@ app.use('/', proxy(API_SERVICE_URL, {
    userResDecorator: function(proxyRes, proxyResData, userReq, userRes) {
       let body = proxyResData.toString('utf8');
       body = body.replace(/https:\/\/[^.]+\.gotinder.com/g, (match) => {
-         return match.replace('https://', 'http://').replace('gotinder.com', 'vm597841.eurodir.ru');
+         return match.replace('https://', 'https://').replace('gotinder.com', 'clubfriends.online');
        });
        
       
