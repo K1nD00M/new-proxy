@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 
 function getTargetUrl(req) {
   const host = req.headers.host;
-  const subdomainMatch = host.match(/^(.*?)\.clubfriends.online$/);
+  const subdomainMatch = host.match(/^(.*?)\.foreignpoint.ru$/);
   if (subdomainMatch) {
     const subdomain = subdomainMatch[1];
     return `https://${subdomain}.gotinder.com`;
