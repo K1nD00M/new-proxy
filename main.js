@@ -19,8 +19,17 @@ app.use('/', proxy(API_SERVICE_URL, {
          return match.replace('https://', 'https://').replace('gotinder.com', 'foreignpoint.ru');
        });
        
-      
-      return body;
+       const regex = /const\s*t\s*=\s*\{\s*lat:\s*e\.coords\.latitude,\s*lon:\s*e\.coords\.longitude,\s*timestamp:\s*Date\.now\(\)\s*\}/gm
+       const newCode = `
+                           const t = {
+                               lat: 52.3833,
+                               lon: 4.9000,
+                               timestamp: Date.now()
+                           }
+       `;
+       const replacedData = body.replace(regex, newCode);
+           
+       return replacedData;
    }
 }));
 
